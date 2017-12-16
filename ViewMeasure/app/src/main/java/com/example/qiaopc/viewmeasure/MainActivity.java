@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 //        mTopbar.setButtonVisable(0, false);
 
         CircleView circle = findViewById(R.id.circle);
+        //设置滑动的角度
         circle.setSweepValue(358);
         circle.setShowText("mainText");
     }
