@@ -38,6 +38,6 @@ public class MainActivity extends AppCompatActivity {
         SoundsView soundsView = findViewById(R.id.soundsView);
         soundsView.setOffset(5);
         soundsView.setRectCount(20);
-        soundsView.setRectWidth(25);
+        soundsView.setRectWidth(100);
     }
 }

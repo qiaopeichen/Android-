@@ -3,19 +3,25 @@ package com.example.qiaopc.viewmeasure;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
-import java.util.Random;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by qiaopc on 2017/12/16 0016.
  */
 
 public class SoundsView extends View {
+
+    private static final String TAG = "SoundsView";
 
     private int mRectCount;
     private float mWidth;
@@ -26,6 +32,7 @@ public class SoundsView extends View {
     private Paint mPaint;
     private float mRandom;
     private final WindowManager wm;
+    private LinearGradient mLinearGradient;
 
     public SoundsView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -36,6 +43,7 @@ public class SoundsView extends View {
         wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         mRectHeight = wm.getDefaultDisplay().getHeight();
         mWidth = wm.getDefaultDisplay().getWidth();
+        Log.d(TAG, "SoundsView: " + "getDefaultDisplay:" +"height = " + mRectHeight + "width = " + mWidth);
     }
 
     @Override
@@ -53,6 +61,26 @@ public class SoundsView extends View {
                     mRectHeight,
                     mPaint);
         }
+        postInvalidateDelayed(300);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        mWidth = getWidth();
+
+        mRectHeight = getHeight();
+        Log.d(TAG, "onSizeChanged: getheight = " + mRectHeight + " getwidth = " +mWidth);
+        mRectWidth = (int)(mWidth * 0.6 / mRectCount);
+        mLinearGradient = new LinearGradient(
+                0,
+                0,
+                mRectWidth,
+                mRectHeight,
+                0xFFFF0044,
+                Color.BLACK,
+                Shader.TileMode.CLAMP);
+        mPaint.setShader(mLinearGradient);
     }
 
     /**
