@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.qiaopc.viewmeasure.MainActivity">
 
-    <com.example.qiaopc.viewmeasure.CircleView
-        android:id="@+id/circle"
+    <com.example.qiaopc.viewmeasure.SoundsView
+        android:id="@+id/soundsView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>

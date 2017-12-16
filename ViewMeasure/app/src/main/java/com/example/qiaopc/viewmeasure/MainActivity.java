@@ -3,8 +3,6 @@ package com.example.qiaopc.viewmeasure;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,9 +30,14 @@ public class MainActivity extends AppCompatActivity {
 //        // 控制 topbar 上组件的状态
 //        mTopbar.setButtonVisable(0, false);
 
-        CircleView circle = findViewById(R.id.circle);
-        //设置滑动的角度
-        circle.setSweepValue(358);
-        circle.setShowText("mainText");
+//        CircleView circle = findViewById(R.id.circle);
+//        //设置滑动的角度
+//        circle.setSweepValue(358);
+//        circle.setShowText("mainText");
+
+        SoundsView soundsView = findViewById(R.id.soundsView);
+        soundsView.setOffset(5);
+        soundsView.setRectCount(20);
+        soundsView.setRectWidth(25);
     }
 }
