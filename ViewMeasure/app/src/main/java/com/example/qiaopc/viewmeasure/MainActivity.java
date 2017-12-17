@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 //        circle.setSweepValue(358);
 //        circle.setShowText("mainText");
 
-        SoundsView soundsView = findViewById(R.id.soundsView);
-        soundsView.setOffset(5);
-        soundsView.setRectCount(20);
-        soundsView.setRectWidth(100);
+//        SoundsView soundsView = findViewById(R.id.soundsView);
+//        soundsView.setOffset(5);
+//        soundsView.setRectCount(20);
+//        soundsView.setRectWidth(100);
     }
 }

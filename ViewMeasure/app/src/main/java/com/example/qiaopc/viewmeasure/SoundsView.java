@@ -67,18 +67,18 @@ public class SoundsView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mWidth = getWidth();
+//        mWidth = getWidth();
 
-        mRectHeight = getHeight();
+//        mRectHeight = getHeight();
         Log.d(TAG, "onSizeChanged: getheight = " + mRectHeight + " getwidth = " +mWidth);
         mRectWidth = (int)(mWidth * 0.6 / mRectCount);
         mLinearGradient = new LinearGradient(
                 0,
                 0,
-                mRectWidth,
+                mWidth,
                 mRectHeight,
-                0xFFFF0044,
-                Color.BLACK,
+                Color.YELLOW,
+                Color.BLUE,
                 Shader.TileMode.CLAMP);
         mPaint.setShader(mLinearGradient);
     }
