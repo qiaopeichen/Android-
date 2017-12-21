@@ -18,7 +18,6 @@ import android.widget.Scroller;
 public class MyScrollView extends ViewGroup {
 
     private int mScreenHeight;
-    private float mY;
     private float mLastY;
     private final Scroller mScroller;
     private int mStart;

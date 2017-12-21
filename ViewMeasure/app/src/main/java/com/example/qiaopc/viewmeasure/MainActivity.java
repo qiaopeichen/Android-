@@ -6,7 +6,6 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TopBar mTopbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
