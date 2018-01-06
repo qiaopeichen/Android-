@@ -37,6 +37,7 @@ public class ViewHolderAdapter extends BaseAdapter {
         return mData.get(position);
     }
 
+
     @Override
     public long getItemId(int position) {
         return position;
