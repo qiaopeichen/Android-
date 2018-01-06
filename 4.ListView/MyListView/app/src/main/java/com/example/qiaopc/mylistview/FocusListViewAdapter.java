@@ -22,7 +22,7 @@ public class FocusListViewAdapter extends BaseAdapter {
 
     private List<String> mData;
     private Context mContext;
-    private int mCurrentItem = 0;
+    private int mCurrentItem = -1;
 
     public FocusListViewAdapter(Context context, List<String> mData) {
         this.mContext = context;
