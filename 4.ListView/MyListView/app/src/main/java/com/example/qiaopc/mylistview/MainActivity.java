@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void btnViewHolder(View v) {
+        Toast.makeText(MainActivity.this, "懒得实现", Toast.LENGTH_SHORT).show();
+    }
+
     public void btnFlexible(View v) {
         startActivity(new Intent(this, FlexibleListViewTest.class));
     }
@@ -37,5 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnChatItem(View v) {
         startActivity(new Intent(this, ChatItemListViewTest.class));
+    }
+
+    public void btnFocus(View v) {
+        startActivity(new Intent(this, FocusListViewTest.class));
     }
 }

@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".FlexibleListViewTest" />
         <activity android:name=".ScrollHideListView" />
-        <activity android:name=".ChatItemListViewTest"></activity>
+        <activity android:name=".ChatItemListViewTest" />
+        <activity android:name=".FocusListViewTest"></activity>
     </application>
 
 </manifest>
