@@ -42,6 +42,7 @@ public class DragView5 extends View {
         mScroller = new Scroller(context);
     }
 
+    // 系统会在 draw()方法中调用该方法
     @Override
     public void computeScroll() {
         super.computeScroll();
