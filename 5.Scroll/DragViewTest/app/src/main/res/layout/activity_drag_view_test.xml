@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.example.qiaopc.dragviewtest.DragViewTest">
 
-    <com.example.qiaopc.dragviewtest.DragView3
+    <com.example.qiaopc.dragviewtest.DragView4
         android:layout_width="100dp"
         android:layout_height="100dp" />
 </LinearLayout>
