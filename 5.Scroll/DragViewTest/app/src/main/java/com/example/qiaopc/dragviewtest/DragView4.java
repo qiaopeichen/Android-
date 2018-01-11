@@ -47,6 +47,7 @@ public class DragView4 extends View {
             case MotionEvent.ACTION_MOVE:
                 int offsetX = x - lastX;
                 int offsetY = y - lastY;
+                // ScrollBy和ScrollTo移动的是content（比如TextView中的文字），所以需要用到getParent来移动当前View
                 ((View) getParent()).scrollBy(-offsetX, -offsetY);
                 break;
         }
