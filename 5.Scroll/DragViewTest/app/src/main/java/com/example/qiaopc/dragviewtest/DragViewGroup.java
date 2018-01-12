@@ -49,6 +49,7 @@ public class DragViewGroup extends FrameLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        // 将事件传递给ViewPagerHelper处理
         return mViewDragHelper.shouldInterceptTouchEvent(ev);
     }
 
