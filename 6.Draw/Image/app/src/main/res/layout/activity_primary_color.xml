@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.qiaopc.image.PrimaryColor">
+    <!--当RelativeLayout方向设置成vertical时，可减少一次水平绘制，避免不必要的画面卡顿-->
+
 
     <ImageView
         android:id="@+id/imageView"
