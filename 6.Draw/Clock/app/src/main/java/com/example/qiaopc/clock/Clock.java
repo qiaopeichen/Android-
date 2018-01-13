@@ -60,6 +60,12 @@ public class Clock extends View {
             canvas.rotate(6, mWidth / 2, mHeight / 2);
         }
 
+        // 画圆心
+        Paint paintPointer = new Paint();
+        paintPointer.setStrokeWidth(30);
+        canvas.drawPoint(mWidth / 2, mHeight / 2, paintPointer);
+        canvas.save();
+
         // 平移画布
         canvas.translate(mWidth / 2, mHeight / 2);
 
@@ -74,11 +80,7 @@ public class Clock extends View {
             canvas.drawText((i+1)+"", temp[2], temp[3] + degressNumberSize/2, paintDegreeNumber);
         }
 
-        // 画圆心
-        Paint paintPointer = new Paint();
-        paintPointer.setStrokeWidth(30);
-        canvas.drawPoint(mWidth / 2, mHeight / 2, paintPointer);
-        canvas.save();
+
 
 
 
@@ -97,7 +99,7 @@ public class Clock extends View {
         paintSecond.setStrokeWidth(5);
         Calendar now = Calendar.getInstance();
         // 一周360度，通过每小时乘以相应的度数比例，从而得到角度
-        float[] hourPoints = calculatePoint(now.get(Calendar.HOUR_OF_DAY) * 30f, hourPointerLength);
+        float[] hourPoints = calculatePoint(now.get(Calendar.HOUR_OF_DAY) * 30f % 360 + now.get(Calendar.MINUTE) * 6f / 360, hourPointerLength);
         canvas.drawLine(hourPoints[0], hourPoints[1], hourPoints[2], hourPoints[3], paintHour);
         float[] minutePoints = calculatePoint(now.get(Calendar.MINUTE) * 6f, minutePointerLength);
         canvas.drawLine(minutePoints[0], minutePoints[1], minutePoints[2], minutePoints[3], paintMinute);
