@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.qiaopc.image.PrimaryColor">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp" />
+
+
+    <!--hue 色调-->
+    <SeekBar
+        android:id="@+id/seekbarHue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView" />
+
+    <!--saturation 饱和度-->
+    <SeekBar
+        android:id="@+id/seekbarSaturation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekbarHue" />
+
+    <!--lum 亮度-->
+    <SeekBar
+        android:id="@+id/seekbarLum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekbarSaturation" />
+</RelativeLayout>
