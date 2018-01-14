@@ -50,13 +50,13 @@ public class PrimaryColor extends AppCompatActivity implements SeekBar.OnSeekBar
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         switch (seekBar.getId()) {
             case R.id.seekbarHue:
-                mHue = (progress - MID_VALUE) * 1.0F / MID_VALUE * 180;
+                mHue = (progress - MID_VALUE) * 1.0F / MID_VALUE * 180; // -180 - 0 - 180 测试为色调的一个周期，也就是说色调的取值范围为-180~180
                 break;
             case R.id.seekbarSaturation:
-                mSaturation =progress * 1.0F / MID_VALUE;
+                mSaturation =progress * 10.0F / MID_VALUE; // 0 - 1 - 2
                 break;
             case R.id.seekbarLum:
-                mLum = progress * 1.0F / MID_VALUE;
+                mLum = progress * 1.0F / MID_VALUE; // 0 - 1 - 2
                 break;
         }
         mImageView.setImageBitmap(ImageHelper.handleImageEffect(bitmap, mHue, mSaturation, mLum));
