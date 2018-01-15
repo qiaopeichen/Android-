@@ -40,4 +40,29 @@
             android:onClick="btnReset"
             android:text="reset" />
     </LinearLayout>
+    <Button
+        android:onClick="btnGray"
+        android:text="灰度效果"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="btnReverse"
+        android:text="反转效果"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="btnOld"
+        android:text="怀旧效果"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="btnTakeOutColor"
+        android:text="去色效果"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="btnHighSaturation"
+        android:text="高饱和度"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

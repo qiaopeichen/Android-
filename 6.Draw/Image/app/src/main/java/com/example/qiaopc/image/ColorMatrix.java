@@ -63,7 +63,7 @@ public class ColorMatrix extends AppCompatActivity {
     private void addEts() {
         for (int i = 0; i < 20; i++) {
             EditText editText = new EditText(ColorMatrix.this);
-            editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+            editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
             mEts[i] = editText;
             mGroup.addView(editText, mEtWidth, mEtHeight);
         }
@@ -76,6 +76,47 @@ public class ColorMatrix extends AppCompatActivity {
         if (!INVALID_FLAG) {
             setImageMatrix();
         }
+    }
+
+
+    public void btnGray(View view) {
+        float [] colorMatrix = {0.33F, 0.59F, 0.11F, 0, 0,
+                                0.33F, 0.59F, 0.11F, 0, 0,
+                                0.33F, 0.59F, 0.11F, 0, 0,
+                                0, 0, 0, 1, 0};
+        setImageMatrix(colorMatrix);
+    }
+
+    public void btnReverse(View view) {
+        float [] colorMatrix = {-1, 0, 0, 1, 1,
+                                0, -1, 0, 1, 1,
+                                0, 0, -1, 1, 1,
+                                0, 0, 0, 1, 0};
+        setImageMatrix(colorMatrix);
+    }
+
+    public void btnOld(View view) {
+        float [] colorMatrix = {0.393F, 0.769F, 0.189F, 0, 0,
+                                0.349F, 0.686F, 0.168F, 0, 0,
+                                0.272F, 0.534F, 0.131F, 0, 0,
+                                0, 0, 0, 1, 0};
+        setImageMatrix(colorMatrix);
+    }
+
+    public void btnTakeOutColor(View view) {
+        float [] colorMatrix = {1.5F, 1.5F, 1.5F, 0, -1,
+                                1.5F, 1.5F, 1.5F, 0, -1,
+                                1.5F, 1.5F, 1.5F, 0, -1,
+                                0, 0, 0, 1, 0};
+        setImageMatrix(colorMatrix);
+    }
+
+    public void btnHighSaturation(View view) {
+        float [] colorMatrix = {1.438F, -0.122F, -0.016F, 0, -0.03F,
+                                -0.062F, 1.378F, -0.016F, 0, 0.05F,
+                                -0.062F, -0.122F, 1.438F, 0, -0.02F,
+                                0, 0, 0, 1, 0};
+        setImageMatrix(colorMatrix);
     }
 
     // 作用矩阵效果
@@ -102,6 +143,19 @@ public class ColorMatrix extends AppCompatActivity {
 
     // 将矩阵值设置到图像
     public void setImageMatrix() {
+        Bitmap bmp = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        android.graphics.ColorMatrix colorMatrix = new android.graphics.ColorMatrix();
+        colorMatrix.set(mColorMatrix);
+
+        Canvas canvas = new Canvas(bmp);
+        Paint paint = new Paint();
+        paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+        canvas.drawBitmap(bitmap, 0, 0, paint);
+        mImageView.setImageBitmap(bmp);
+    }
+
+    // 将矩阵值设置到图像
+    public void setImageMatrix(float[] mColorMatrix) {
         Bitmap bmp = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
         android.graphics.ColorMatrix colorMatrix = new android.graphics.ColorMatrix();
         colorMatrix.set(mColorMatrix);
