@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ColorMatrix" />
-        <activity android:name=".PrimaryColor"></activity>
+        <activity android:name=".PrimaryColor" />
+        <activity android:name=".PixelsEffect"></activity>
     </application>
 
 </manifest>

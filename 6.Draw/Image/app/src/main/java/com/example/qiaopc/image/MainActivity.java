@@ -20,4 +20,8 @@ public class MainActivity extends AppCompatActivity {
     public void btnColorMatrix(View view) {
         startActivity(new Intent(this, ColorMatrix.class));
     }
+
+    public void btnPixelsEffect(View v) {
+        startActivity(new Intent(this, PixelsEffect.class));
+    }
 }
