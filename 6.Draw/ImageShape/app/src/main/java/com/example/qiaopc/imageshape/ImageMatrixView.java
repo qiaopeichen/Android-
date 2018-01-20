@@ -40,6 +40,7 @@ public class ImageMatrixView extends View {
     }
 
     public void initMyView() {
+        // 当此bitmap为null时，注意资源包下的图片，是不是有相同名字的xml
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
         setImageAndMatrix(bitmap, new Matrix());
     }
