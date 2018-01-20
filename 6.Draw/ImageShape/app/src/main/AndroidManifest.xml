@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ReflectViewTest" />
-        <activity android:name=".FlagBitmapMeshTest"></activity>
+        <activity android:name=".FlagBitmapMeshTest" />
+        <activity android:name=".ImageMatrixTest"></activity>
     </application>
 
 </manifest>

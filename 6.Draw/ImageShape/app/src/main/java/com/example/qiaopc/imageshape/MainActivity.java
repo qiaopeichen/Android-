@@ -17,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, ReflectViewTest.class));
     }
 
+    public void btnImageMatrix(View view) {
+        startActivity(new Intent(MainActivity.this, ImageMatrixTest.class));
+    }
+
     public void btnFlag(View view) {
         startActivity(new Intent(MainActivity.this, FlagBitmapMeshTest.class));
     }
