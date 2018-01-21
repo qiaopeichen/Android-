@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.support.annotation.Nullable;
@@ -37,9 +39,12 @@ public class RoundRectShaderView extends View {
     protected void onDraw(Canvas canvas) {
         mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
         mBitmapShader = new BitmapShader(mBitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
+
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setShader(mBitmapShader);
-        canvas.drawCircle(500, 250, 200, mPaint);
+//        mPaint.setShader(mBitmapShader);
+        mPaint.setShader(new LinearGradient(0, 0, 400, 400, Color.BLUE, Color.YELLOW, Shader.TileMode.REPEAT));
+//        canvas.drawCircle(500, 250, 200, mPaint);
+        canvas.drawRect(0, 0, 500, 500, mPaint);
     }
 }
