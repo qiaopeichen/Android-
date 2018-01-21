@@ -41,6 +41,7 @@ public class XfermodeView extends View {
 
     private void init() {
         mPaint = new Paint();
+        // 透明度为0的画笔
         mPaint.setAlpha(0);
         mPaint.setXfermode(
                 new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
