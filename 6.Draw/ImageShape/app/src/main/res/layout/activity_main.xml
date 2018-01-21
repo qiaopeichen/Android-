@@ -30,4 +30,10 @@
         android:layout_height="wrap_content"
         android:onClick="btnFlag"
         android:text="Flag" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="btnReflect"
+        android:text="Reflect" />
 </LinearLayout>
