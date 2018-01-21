@@ -14,6 +14,9 @@ import android.view.WindowManager;
 
 /**
  * Created by qiaopc on 2018/1/21 0021.
+ * PorterDuffXfermode
+ * 有点像数学中的交集、并集这样的概念
+ * 它控制的是两个图像间的混合显示模式
  */
 
 public class RoundRectXfermodeView extends View {
@@ -45,10 +48,10 @@ public class RoundRectXfermodeView extends View {
         // 先用画笔画一个遮罩层
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-//        canvas.drawRoundRect(0, 0, mBitmap.getWidth(), mBitmap.getHeight(), 80, 80, mPaint);
+        canvas.drawRoundRect(0, 0, mBitmap.getWidth(), mBitmap.getHeight(), 80, 80, mPaint);
         canvas.drawCircle(mBitmap.getWidth() / 2, mBitmap.getHeight() / 2, mBitmap.getHeight() / 2, mPaint);
 
-        // 再用带PorterDuffXfermode的画笔将图像画在遮罩层上
+        // 再用带PorterDuffXfermode的画笔将图像画在遮罩层上，DST是前面的图形，SRC是后面的图形
         mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(mBitmap, 0, 0, mPaint);
     }
