@@ -24,4 +24,12 @@ public class MainActivity extends AppCompatActivity {
     public void btnFlag(View view) {
         startActivity(new Intent(MainActivity.this, FlagBitmapMeshTest.class));
     }
+
+    public void btnPorterDuffXfermode(View view) {
+        startActivity(new Intent(MainActivity.this, XfermodeViewTest.class));
+    }
+
+    public void btnRoundRect(View view) {
+        startActivity(new Intent(MainActivity.this, RoundRectTest.class));
+    }
 }

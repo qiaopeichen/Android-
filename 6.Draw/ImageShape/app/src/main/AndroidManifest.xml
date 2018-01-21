@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".ReflectViewTest" />
         <activity android:name=".FlagBitmapMeshTest" />
-        <activity android:name=".ImageMatrixTest"></activity>
+        <activity android:name=".ImageMatrixTest" />
+        <activity android:name=".XfermodeViewTest" />
+        <activity android:name=".RoundRectTest"></activity>
     </application>
 
 </manifest>
