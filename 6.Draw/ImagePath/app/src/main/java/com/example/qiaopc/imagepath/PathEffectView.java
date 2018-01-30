@@ -33,9 +33,10 @@ public class PathEffectView extends View {
         mPaint.setColor(Color.DKGRAY);
         mPath = new Path();
         mPath.moveTo(0, 0);
-        for (int i = 0; i <= 30; i++) {
-            mPath.lineTo(i * 35, (float) (Math.random() * 100));
-        }
+//        for (int i = 0; i <= 30; i++) {
+//            mPath.lineTo(i * 35, (float) (Math.random() * 100));
+//        }
+       mPath.lineTo(1000, 0);
         mEffects = new PathEffect[6];
     }
 
@@ -45,11 +46,12 @@ public class PathEffectView extends View {
         mEffects[0] = null;
         mEffects[1] = new CornerPathEffect(30);
         mEffects[2] = new DiscretePathEffect(3.0F, 5.0F);
-        mEffects[3] = new DashPathEffect(new float[]{20, 10, 5, 10}, 0);
+        mEffects[3] = new DashPathEffect(new float[]{20, 10, 5, 10}, 0); //数组意为：黑20，空10，黑5，空10，这样就出现了虚线
         Path path = new Path();
-        path.addRect(0, 0, 8, 8, Path.Direction.CCW);
+//        path.addRect(0, 0, 8, 8, Path.Direction.CCW);
+        path.addCircle(0,0,4, Path.Direction.CCW); // CCW = counter clock wise 逆时针
         mEffects[4] = new PathDashPathEffect(path, 12, 0, PathDashPathEffect.Style.ROTATE);
-        mEffects[5] = new ComposePathEffect(mEffects[3], mEffects[1]);
+        mEffects[5] = new ComposePathEffect(mEffects[3], mEffects[2]);
         for (int i = 0; i < mEffects.length; i++) {
             mPaint.setPathEffect(mEffects[i]);
             canvas.drawPath(mPath, mPaint);
