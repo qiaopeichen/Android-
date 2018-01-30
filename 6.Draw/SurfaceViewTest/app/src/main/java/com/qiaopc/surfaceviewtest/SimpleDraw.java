@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
 
@@ -13,28 +14,26 @@ import android.view.SurfaceHolder;
  * Created by qiaopc on 2018/1/30 0030.
  */
 
-public class SinView extends SurfaceView
+public class SimpleDraw extends SurfaceView
         implements SurfaceHolder.Callback, Runnable {
 
     private SurfaceHolder mHolder;
     private Canvas mCanvas;
     private boolean mIsDrawing;
-    private int x = 0;
-    private int y = 0;
     private Path mPath;
     private Paint mPaint;
 
-    public SinView(Context context) {
+    public SimpleDraw(Context context) {
         super(context);
         initView();
     }
 
-    public SinView(Context context, AttributeSet attrs) {
+    public SimpleDraw(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView();
     }
 
-    public SinView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SimpleDraw(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView();
     }
@@ -46,18 +45,15 @@ public class SinView extends SurfaceView
         setFocusableInTouchMode(true);
         this.setKeepScreenOn(true);
         mPath = new Path();
-        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaint = new Paint();
         mPaint.setColor(Color.RED);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(10);
-        mPaint.setStrokeCap(Paint.Cap.ROUND); // 设置线两端的样式
-        mPaint.setStrokeJoin(Paint.Join.ROUND); // 设置线连接的样式
+        mPaint.setStrokeWidth(40);
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         mIsDrawing = true;
-        mPath.moveTo(0, 400);
         new Thread(this).start();
     }
 
@@ -73,19 +69,25 @@ public class SinView extends SurfaceView
 
     @Override
     public void run() {
+        long start = System.currentTimeMillis();
         while (mIsDrawing) {
             draw();
-            x += 1;
-            y = (int) (100 * Math.sin(x * 2 * Math.PI / 180) + 400); // PI/180*角度 公式：将角度转换为弧度
-            mPath.lineTo(x, y);
+        }
+        long end = System.currentTimeMillis();
+        // 50 - 100
+        if (end - start < 100) {
+            try {
+                Thread.sleep(100 - (end - start));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void draw() {
         try {
             mCanvas = mHolder.lockCanvas();
-            // SurfaceView 背景
-            mCanvas.drawColor(Color.WHITE);
+            mCanvas.drawColor(Color.WHITE); // 设置画布底色
             mCanvas.drawPath(mPath, mPaint);
         } catch (Exception e) {
         } finally {
@@ -93,5 +95,22 @@ public class SinView extends SurfaceView
                 mHolder.unlockCanvasAndPost(mCanvas);
             }
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int) event.getX();
+        int y = (int) event.getY();
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mPath.moveTo(x, y);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mPath.lineTo(x, y);
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        return true;
     }
 }
