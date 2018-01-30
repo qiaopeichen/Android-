@@ -10,4 +10,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(new SimpleDraw(MainActivity.this));
     }
+    
 }

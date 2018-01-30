@@ -94,4 +94,5 @@ public class SinView extends SurfaceView
             }
         }
     }
+
 }

@@ -113,4 +113,5 @@ public class SimpleDraw extends SurfaceView
         }
         return true;
     }
+
 }
