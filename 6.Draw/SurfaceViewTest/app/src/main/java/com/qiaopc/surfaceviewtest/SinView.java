@@ -76,7 +76,7 @@ public class SinView extends SurfaceView
         while (mIsDrawing) {
             draw();
             x += 1;
-            y = (int) (100 * Math.sin(x * 2 * Math.PI / 180) + 400); // PI/180*角度 公式：将角度转换为弧度
+            y = (int) (100 * Math.sin(x * 2 * Math.PI / 180) + 400);
             mPath.lineTo(x, y);
         }
     }
