@@ -40,12 +40,14 @@ public class CustomAnim extends Animation {
         final Matrix matrix = t.getMatrix();
         mCamera.save();
         // 使用Camera设置旋转的角度
+//        mCamera.rotateZ(mRotateY * interpolatedTime); // mCamera可叠加
         mCamera.rotateY(mRotateY * interpolatedTime);
         // 将旋转变换作用到matrix上
         mCamera.getMatrix(matrix);
         mCamera.restore();
-        // 通过pre方法设置矩阵作用前的偏移量来改变旋转中心
-        matrix.preTranslate(mCenterWidth, mCenterHeight);
-        matrix.postTranslate(-mCenterWidth, -mCenterHeight);
+        // 通过pre方法设置矩阵作用前的偏移量来改变旋转中心 translate平移
+//        matrix.preTranslate(mCenterWidth, mCenterHeight);
+//        matrix.postTranslate(-mCenterWidth, -mCenterHeight);
+        matrix.postTranslate(0,0);
     }
 }

@@ -14,7 +14,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnAnim(View view) {
         CustomAnim customAnim = new CustomAnim();
-        customAnim.setRotateY(30);
+        customAnim.setRotateY(360);
         view.startAnimation(customAnim);
+    }
+
+    public void imgClose(View view) {
+        CustomTV customTV = new CustomTV();
+        view.startAnimation(customTV);
     }
 }
