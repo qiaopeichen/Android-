@@ -16,4 +16,12 @@ public class MainActivity extends AppCompatActivity {
     public void btnDrop(View view) {
         startActivity(new Intent(this, DropTest.class));
     }
+
+    public void btnProperty(View view) {
+        startActivity(new Intent(this, PropertyTest.class));
+    }
+
+    public void btnTimer(View view) {
+        startActivity(new Intent(this, TimerTest.class));
+    }
 }
