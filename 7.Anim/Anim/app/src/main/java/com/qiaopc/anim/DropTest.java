@@ -3,6 +3,7 @@ package com.qiaopc.anim;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -52,6 +53,12 @@ public class DropTest extends AppCompatActivity {
             }
         });
         animator.start();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
     }
 
     private ValueAnimator createDropAnimator(final View view, int start, int end) {
