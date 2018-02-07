@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mRcList = findViewById(R.id.rc_list);
         mLayoutManager = new LinearLayoutManager(this);
         mRcList.setLayoutManager(mLayoutManager);
+        // 当item的改变不会影响recyclerView宽高的时候，将其设置为true避免重新计算大小
         mRcList.setHasFixedSize(true);
         // 设置显示动画
         mRcList.setItemAnimator(new DefaultItemAnimator());
